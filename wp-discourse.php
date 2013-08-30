@@ -417,7 +417,7 @@ class Discourse {
   }
 
   function url_input(){
-    self::text_input('url', 'Enter your discourse url Eg: http://discuss.mysite.com');
+    self::text_input('url', 'Enter your discourse url e.g.: http://discuss.mysite.com');
   }
 
   function api_key_input(){
@@ -429,11 +429,11 @@ class Discourse {
   }
 
   function publish_category_input(){
-    self::text_input('publish-category', 'Category post will be published in Discourse (optional)');
+    self::text_input('publish-category', 'Category posts will be published in Discourse (optional)');
   }
 
   function publish_format_textarea(){
-    self::text_area('publish-format', 'Markdown format for published articles, use {excerpt} for excerpt and {blogurl} for the url of the blog post');
+    self::text_area('publish-format', 'Markdown format for published articles (use {excerpt} for excerpt and {blogurl} for the url of the blog post)');
   }
 
   function max_comments_input(){
@@ -441,7 +441,7 @@ class Discourse {
   }
 
   function use_fullname_in_comments_checkbox(){
-    self::checkbox_input('use-fullname-in-comments', 'Use the users full name in blog comment section');
+    self::checkbox_input('use-fullname-in-comments', 'Use the user\'s full name in blog comment section');
   }
 
   function auto_publish_checkbox(){
@@ -449,7 +449,7 @@ class Discourse {
   }
 
   function auto_track_checkbox(){
-    self::checkbox_input('auto-track', 'Author automatically tracks pulished Discourse topics');
+    self::checkbox_input('auto-track', 'Author automatically tracks published Discourse topics');
   }
 
   function auto_update_checkbox(){
