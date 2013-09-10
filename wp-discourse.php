@@ -110,15 +110,8 @@ class Discourse {
   }
 
   function use_discourse_comments($postid){
-    // we may have a missing "publish_to_discourse" ... if it is missing AND
-    //  the post is 7 days or younger, just publish it
-    //
-    // note: codex api says get_post_meta will return "" if the setting is missing
-    //  tested and it is the case
-
     $setting = get_post_meta($postid, 'publish_to_discourse', true);
-    $a_week = 604800;
-    return $setting == "1" || ($setting == "" && (time() - get_the_time('U',$postid)) < $a_week) ;
+    return $setting == "1";
   }
 
   function sync_comments($postid) {
