@@ -233,7 +233,7 @@ class Discourse {
 
       // This seems a little redundant after `save_postdata` but when using the Press This
       // widget it updates the field as it should.
-      add_post_meta($postid, 'publish_to_discourse', "1", true);
+      add_post_meta($postid, 'publish_to_discourse', "0", true);
 
       self::sync_to_discourse($postid, $post->post_title, $post->post_content);
     }
@@ -243,7 +243,7 @@ class Discourse {
   function xmlrpc_publish_post_to_discourse($postid){
     $post = get_post($postid);
     if (get_post_status($postid) == "publish" && !self::is_custom_post_type($postid)) {
-      add_post_meta($postid, 'publish_to_discourse', "1", true);
+      add_post_meta($postid, 'publish_to_discourse', "0", true);
       self::sync_to_discourse($postid, $post->post_title, $post->post_content);
     }
   }
@@ -269,7 +269,7 @@ class Discourse {
     if (isset($_POST['showed_publish_option'])) {
       return $_POST['publish_to_discourse'] == "1";
     } else {
-      return true;
+      return false;
     }
   }
 
